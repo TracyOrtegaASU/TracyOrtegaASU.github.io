@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roll the Dice Slots with Tracy::TRAVEL</title>
+  <link rel="stylesheet" href="ROLL THE DICE SLOTS.css"> <!-- Link to your CSS file -->
+</head>
+<style>
+  .dice-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.rolling-dice {
+  position: absolute;
+  width: 60px;
+  animation: spinDice 1s linear infinite;
+  transition: top 1s linear,left 1s linear;
+  transition: top 2s linear, left 2s linear;
+}
+
+@keyframes spinDice {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<div class="dice-container">
+  <img src="dice.png" alt="Rolling Dice" class="rolling-dice" id="dice1">
+</div>
+<div class="dice-container">
+  <img src="flaming dice.png" alt="Rolling Dice" class="rolling-dice" id="dice2">
+</div>
+<div class="dice-container">
+  <img src="flaming dice.png" alt="Rolling Dice" class="rolling-dice" id="dice3">
+</div>
+<!-- Removed duplicate dice script block to fix redeclaration error -->
+<body>
+  <div id="wrapper">
+
+  <!-- Header -->
+<header>
+  <h1>
+    <a href="ROLL THE DICE SLOTS.html"></a>
+  </h1>
+  <img src="rtds logo1.png" alt="roll the dice slots logo" class="site-logo">
+  <h1>Roll the Dice, Slots with Tracy</h1>
+</header>
+<script>
+function moveAroundPerimeter(dice, delay) {
+  const perimeter = [
+    { top: 0, left: 0 }, // top-left
+    { top: 0, left: window.innerWidth - 60 }, // top-right
+    { top: window.innerHeight - 60, left: window.innerWidth - 60 }, // bottom-right
+    { top: window.innerHeight - 60, left: 0 } // bottom-left
+  ];
+
+  let index = 0;
+
+  function loop() {
+    const pos = perimeter[index];
+    dice.style.top = `${pos.top}px`;
+    dice.style.left = `${pos.left}px`;
+    index = (index + 1) % perimeter.length;
+    setTimeout(loop, delay);
+  }
+
+  loop(); // start the loop
+}
+
+const dice1 = document.getElementById('dice1');
+const dice2 = document.getElementById('dice2');
+const dice3 = document.getElementById('dice3');
+
+moveAroundPerimeter(dice1, 4000);
+moveAroundPerimeter(dice2, 5500);
+moveAroundPerimeter(dice3, 6000);
+</script>
+    <!-- Sidebar Navigation -->
+     <nav>
+ <ul>
+        <li><a href="roll the dice slots.html">HOME</a></li>
+        <li><a href="gambling.html">GAMBLING</a></li>
+        <li><a href="travel.html">TRAVEL</a></li>
+        <li><a href="merch.html">MERCHANDISE</a></li>
+        <li><a href="archives.html">ARCHIVES</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <p>Welcome to Tracy’s slot machine adventures! Watch featured videos, explore travel stories, and grab exclusive merch.</p>
+    </main>
+
+    <!-- Videos Section -->
+    <section class="videos">
+      <div class="video-box">Video 1</div>
+      <div class="video-box">Video 2</div>
+      <div class="video-box">Video 3</div>
+      <div class="video-box">Video 4</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Contact: tracy@example.com</p>
+      <div class="social-icons">
+        <img src="facebook.png" alt="Facebook">
+        <img src="instagram.png" alt="Instagram">
+       </div>
+      <button class="subscribe-button">SUBSCRIBE</button>
+    </footer>
+
+  </div>
+</body>
+</html>
