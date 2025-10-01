@@ -24,6 +24,6 @@ Welcome to the official website for **Roll the Dice Slots with Tracy**,  Watch m
 To run locally:
 
 ```bash
-git clone https://github.com/yourusername/roll-the-dice-slots.git
+git clone https://TracyOrtegaASU.github.oi
 cd roll-the-dice-slots
 open index.html  # or use Live Server
